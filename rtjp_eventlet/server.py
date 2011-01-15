@@ -156,7 +156,7 @@ class RTJPConnection(object):
                 self._send_lock.acquire()
                 self._sock.sendall(buffer)
                 self.logger.debug('SENT %s: %s', self, repr(buffer))
-            except (Exception, AttributeError), e:
+            except (Exception, AttributeError,), e:
                 self.logger.exception('%s Error sending payload %s', self, repr(buffer))
                 try:
                     self._sock.shutdown()
